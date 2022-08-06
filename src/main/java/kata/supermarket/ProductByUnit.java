@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 
 public class ProductByUnit {
 
+    private final String name;
     private final BigDecimal pricePerUnit;
 
-    public ProductByUnit(final BigDecimal pricePerUnit) {
+    public ProductByUnit(final String name, final BigDecimal pricePerUnit) {
+        this.name = name;
         this.pricePerUnit = pricePerUnit;
     }
 
@@ -15,6 +17,6 @@ public class ProductByUnit {
     }
 
     public Item oneOf() {
-        return new ItemByUnit(this);
+        return new ItemByUnit(name,this);
     }
 }

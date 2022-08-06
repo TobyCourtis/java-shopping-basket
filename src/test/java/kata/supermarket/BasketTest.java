@@ -1,9 +1,13 @@
 package kata.supermarket;
 
+import kata.supermarket.discount.DiscountProcessor;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -11,15 +15,22 @@ import java.util.Collections;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class BasketTest {
+
+    @Mock
+    DiscountProcessor discountProcessor;
 
     @DisplayName("basket provides its total value when containing...")
     @MethodSource
     @ParameterizedTest(name = "{0}")
     void basketProvidesTotalValue(String description, String expectedTotal, Iterable<Item> items) {
-        final Basket basket = new Basket();
+
+        final Basket basket = new Basket(discountProcessor);
         items.forEach(basket::add);
+        when(discountProcessor.applyAllDiscounts(basket.items())).thenReturn(new BigDecimal(0));
         assertEquals(new BigDecimal(expectedTotal), basket.total());
     }
 

@@ -49,7 +49,7 @@ class XForPriceOfYDiscountTest {
         assertEquals(new BigDecimal("3.00"), actualDiscount);
     }
 
-    private static Item aPackOfDigestives() {
+    private Item aPackOfDigestives() {
         return new ProductByUnit("Digestives", new BigDecimal("1.50")).oneOf();
     }
 }

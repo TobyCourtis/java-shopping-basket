@@ -57,23 +57,23 @@ class BasketTest {
     }
 
     private static Item aPintOfMilk() {
-        return new Product(new BigDecimal("0.49")).oneOf();
+        return new ProductByUnit(new BigDecimal("0.49")).oneOf();
     }
 
     private static Item aPackOfDigestives() {
-        return new Product(new BigDecimal("1.55")).oneOf();
+        return new ProductByUnit(new BigDecimal("1.55")).oneOf();
     }
 
-    private static WeighedProduct aKiloOfAmericanSweets() {
-        return new WeighedProduct(new BigDecimal("4.99"));
+    private static ProductByWeight aKiloOfAmericanSweets() {
+        return new ProductByWeight(new BigDecimal("4.99"));
     }
 
     private static Item twoFiftyGramsOfAmericanSweets() {
         return aKiloOfAmericanSweets().weighing(new BigDecimal(".25"));
     }
 
-    private static WeighedProduct aKiloOfPickAndMix() {
-        return new WeighedProduct(new BigDecimal("2.99"));
+    private static ProductByWeight aKiloOfPickAndMix() {
+        return new ProductByWeight(new BigDecimal("2.99"));
     }
 
     private static Item twoHundredGramsOfPickAndMix() {

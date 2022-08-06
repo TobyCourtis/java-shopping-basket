@@ -6,10 +6,10 @@ import static java.math.RoundingMode.HALF_UP;
 
 public class ItemByWeight implements Item {
 
-    private final WeighedProduct product;
+    private final ProductByWeight product;
     private final BigDecimal weightInKilos;
 
-    ItemByWeight(final WeighedProduct product, final BigDecimal weightInKilos) {
+    ItemByWeight(final ProductByWeight product, final BigDecimal weightInKilos) {
         this.product = product;
         this.weightInKilos = weightInKilos;
     }

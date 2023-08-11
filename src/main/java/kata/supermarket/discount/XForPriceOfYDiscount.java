@@ -21,6 +21,7 @@ public abstract class XForPriceOfYDiscount implements Discount {
     @Override
     public BigDecimal applyDiscount(List<Item> items) {
         BigDecimal totalDiscount = new BigDecimal(0);
+
         for(String supportedItemName : supportedItemNames){
             List<Item> specificItems = items.stream()
                     .filter(i -> i.getName().equals(supportedItemName))
@@ -37,6 +38,7 @@ public abstract class XForPriceOfYDiscount implements Discount {
         BigDecimal itemCost = specificItems.get(0).price();
 
         long timesToApplyDiscount = (specificItems.size() / numberOfItemsRequired);
+
         BigDecimal discount = new BigDecimal(timesToApplyDiscount)
                 .multiply(new BigDecimal(numberOfItemsRequired - numberOfItemsToPayFor).multiply(itemCost));
         return totalDiscount.add(discount);

@@ -10,7 +10,7 @@ public class ItemByWeight extends Item {
     private final BigDecimal weightInKilos;
 
     ItemByWeight(final String name, final ProductByWeight product, final BigDecimal weightInKilos) {
-        super(name);
+        super(name, null);
         this.product = product;
         this.weightInKilos = weightInKilos;
     }

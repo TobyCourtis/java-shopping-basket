@@ -6,8 +6,8 @@ public class ItemByUnit extends Item {
 
     private final ProductByUnit productByUnit;
 
-    ItemByUnit(final String name, final ProductByUnit productByUnit) {
-        super(name);
+    ItemByUnit(final String name, final ProductByUnit productByUnit, final String category) {
+        super(name, category);
         this.productByUnit = productByUnit;
     }
 
